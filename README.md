@@ -1,128 +1,112 @@
-# Employee-Management-System-SQL-Project
+# Employee Management System SQL Project
 
-Project Overview
+## Project Title
 
-This project demonstrates the design and analysis of an employee management database using SQL. The system stores and organizes employee records, departments, job roles, salary history, attendance records, and performance reviews.
+Employee Management System SQL Database Project
 
-The project focuses on relational database design, data normalization, and analytical querying to answer business questions commonly faced by HR and management teams.
+## Problem Statement
 
-The database was implemented using MySQL Workbench and populated using CSV datasets.
+Organizations need structured systems to manage employee information such as department assignments, job roles, salary history, attendance records, and performance reviews. When employee data is stored in scattered spreadsheets or disconnected systems, it becomes difficult for HR teams and management to analyze workforce information and make informed decisions.
 
+This project simulates a real world Employee Management System using SQL. The goal is to design a relational database that stores employee information and allows analysts to run queries that support HR reporting and workforce analysis.
 
-Technologies Used
+The project demonstrates how SQL can be used to organize organizational data, enforce relationships between tables, and answer important business questions related to employee management.
 
-SQL
-MySQL Workbench
-CSV Data Files
-GitHub
+## Project Objectives
 
+Design a normalized relational database for managing employee data.
 
-Database Architecture
+Implement tables with primary keys and foreign key relationships.
 
-The database follows a relational design where multiple tables interact through primary and foreign keys.
+Store employee records, departments, jobs, salaries, attendance, and performance reviews.
 
+Write SQL queries to retrieve, filter, and analyze employee data.
 
-Tables in the database
+Generate insights that HR teams and managers can use for decision making.
+
+Demonstrate practical SQL skills used in real workplace data analysis.
+
+## Dataset Description
+
+The project uses structured sample datasets stored as CSV files. These files simulate organizational HR data.
 
 Employees
-Stores personal and employment details of staff members.
+Contains employee personal information, employment details, department assignments, and job roles.
 
 Departments
-Stores department names and their locations.
+Stores department names and office locations within the organization.
 
 Jobs
-Defines job roles and salary ranges.
+Defines job titles and salary ranges for each role.
 
 Salaries
-Stores employee salary records and salary history.
+Stores employee salary records and salary history across time periods.
 
 Attendance
-Tracks employee daily attendance including check-in and check-out times.
+Tracks daily attendance records including attendance status, check in time, and check out time.
 
 Performance
-Stores employee performance reviews and ratings.
+Stores employee performance review scores and feedback.
 
+The datasets were imported into the SQL database to populate the tables and simulate a functioning employee management system.
 
-Table Relationships
+## Database Schema
 
-Employees → Departments using DepartmentID
-Employees → Jobs using JobID
-Employees → ManagerID referencing Employees (self relationship)
-Salaries → Employees using EmployeeID
-Attendance → Employees using EmployeeID
-Performance → Employees using EmployeeID
+The database follows a relational structure where tables are connected through primary and foreign key relationships.
 
-This relational structure supports scalable HR data management.
+Main relationships in the system
 
+Employees linked to Departments through DepartmentID
+Employees linked to Jobs through JobID
+Employees linked to Managers through ManagerID referencing Employees
+Salaries linked to Employees through EmployeeID
+Attendance linked to Employees through EmployeeID
+Performance linked to Employees through EmployeeID
 
-SQL Skills Demonstrated
+An Entity Relationship Diagram illustrates the database structure and relationships between tables.
 
-Database creation
-Table design and normalization
-Primary and foreign key implementation
-Self referencing relationships
-Data filtering using WHERE
-Logical operators including AND, OR, NOT
-Pattern filtering and conditional logic
-Sorting using ORDER BY
-Aggregation and filtering
-Data pagination using LIMIT and OFFSET
-Data joins including INNER JOIN and LEFT JOIN
+ER Diagram
 
+images/ER_Diagram.png
 
-Business Questions Answered
+## SQL Analysis
 
-List all active employees in the organization
+Several SQL queries were written to explore and analyze the employee database.
 
-Identify employees who belong to a specific department such as Finance
+Examples of SQL queries used in the analysis include:
 
-Find employees with salaries above a specific threshold
-
-Identify employees who were absent on certain days
-
-Retrieve employee attendance records for a specific period
-
-Identify departments and their locations
-
-List employees and their job roles
-
-Identify the highest earning employees
-
-Retrieve employees across multiple departments such as HR or Finance
-
-
-Example SQL Queries
-
-Active Employees
+Retrieve all active employees
 
 SELECT *
 FROM Employees
 WHERE Status = 'Active';
 
-Employees in Finance Department
+Identify employees working in the Finance department
 
 SELECT
 e.EmployeeID,
 CONCAT(e.FirstName, ' ', e.LastName) AS FullName,
 d.DeptName
 FROM Employees e
-JOIN Departments d ON e.DepartmentID = d.DeptID
+JOIN Departments d
+ON e.DepartmentID = d.DeptID
 WHERE d.DeptName = 'Finance'
 AND e.Status = 'Active';
 
-High Salary Employees
+Identify employees earning above a specific salary threshold
 
 SELECT
 e.EmployeeID,
 CONCAT(e.FirstName, ' ', e.LastName) AS FullName,
 s.SalaryAmount
 FROM Employees e
-JOIN Salaries s ON e.EmployeeID = s.EmployeeID
+JOIN Salaries s
+ON e.EmployeeID = s.EmployeeID
 WHERE s.ToDate IS NULL
 AND s.SalaryAmount > 100000
 ORDER BY s.SalaryAmount DESC;
 
-Attendance Analysis
+Analyze attendance records within a specific date range
 
 SELECT
 a.AttendanceID,
@@ -131,11 +115,12 @@ e.LastName,
 a.AttendanceDate,
 a.Status
 FROM Attendance a
-JOIN Employees e ON a.EmployeeID = e.EmployeeID
+JOIN Employees e
+ON a.EmployeeID = e.EmployeeID
 WHERE a.AttendanceDate BETWEEN '2026-01-01' AND '2026-01-31'
 AND a.Status = 'Present';
 
-Top 5 Highest Paid Employees
+Retrieve the top 5 highest paid employees
 
 SELECT
 e.EmployeeID,
@@ -143,76 +128,72 @@ CONCAT(e.FirstName, ' ', e.LastName) AS FullName,
 s.SalaryAmount,
 j.JobTitle
 FROM Employees e
-JOIN Salaries s ON e.EmployeeID = s.EmployeeID
-JOIN Jobs j ON e.JobID = j.JobID
+JOIN Salaries s
+ON e.EmployeeID = s.EmployeeID
+JOIN Jobs j
+ON e.JobID = j.JobID
 WHERE s.ToDate IS NULL
 ORDER BY s.SalaryAmount DESC
 LIMIT 5;
 
+Screenshots of query outputs are available in the screenshots folder.
 
-Example Insights
+## Key Insights
 
-Employees in Finance and Human Resources departments represent key operational units.
+Employee salary data allows identification of the highest earning employees within the organization.
 
-Salary records reveal the distribution of compensation across job roles.
+Attendance records help track employee presence and identify absence patterns.
 
-Attendance data helps track employee presence and identify absentee patterns.
+Department level filtering allows HR teams to review workforce distribution across departments.
 
-Salary ranking queries help identify top earning employees.
+Joining employee, salary, and job tables helps analyze compensation patterns across roles.
 
-Pagination queries allow analysts to work efficiently with large employee datasets.
+Structured relational databases improve data accessibility and reporting efficiency.
 
+## Project Structure
 
-Project Structure
-
-Employee-Management-System-SQL
+Employee-Management-System-SQL-Project
 
 README.md
 database_schema.sql
 analysis_queries.sql
 
 datasets
-departments.csv
 employees.csv
+departments.csv
 jobs.csv
 salaries.csv
 attendance.csv
 performance.csv
 
+images
+ER_Diagram.png
+
 screenshots
-query_results.png
-salary_analysis.png
+active_employees.png
+top_salary.png
 attendance_query.png
 
+## Tools Used
 
-Learning Outcomes
+SQL
+MySQL Workbench
+CSV datasets
+GitHub
 
-Design a normalized relational database structure
+## Future Improvements
 
-Implement primary keys and foreign keys
+Apply advanced SQL analytics using GROUP BY and aggregation functions.
 
-Write SQL queries for business analysis
+Introduce window functions for deeper salary and performance analysis.
 
-Use JOIN operations to combine multiple tables
+Build interactive HR dashboards using Power BI or Tableau.
 
-Filter and analyze HR data using SQL
+Expand the dataset to simulate a larger enterprise level HR database.
 
-Present data insights using structured queries
-
-
-Future Improvements
-
-Add analytical SQL functions such as GROUP BY and window functions
-
-Create HR dashboards using Power BI or Tableau
-
-Build automated reports for employee performance and attendance tracking
-
-Expand the dataset to simulate real enterprise scale HR systems
-
-
-Author
+## Author
 
 Emmanuel Olawumi
 
-Data Analyst | SQL | Data Analytics | Digital Strategy
+Data Analyst
+SQL | Data Analytics | Digital Strategy
