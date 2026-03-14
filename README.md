@@ -67,7 +67,7 @@ An Entity Relationship Diagram illustrates the database structure and relationsh
 
 ER Diagram
 
-images/ER_Diagram.png
+ER_Diagram.png
 
 ## SQL Analysis
 
