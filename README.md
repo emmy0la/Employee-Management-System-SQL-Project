@@ -1,8 +1,8 @@
 # Employee Management System SQL Project
 
-## Project Title
+## Project Note
 
-Employee Management System SQL Database Project
+This project was completed as part of a collaborative assignment by Team D of the SQL Study Group. Each member independently implemented the Employee Management System database and SQL analysis, while the final presentation and knowledge sharing were conducted as a team exercise.
 
 ## Problem Statement
 
@@ -67,7 +67,8 @@ An Entity Relationship Diagram illustrates the database structure and relationsh
 
 ER Diagram
 
-ER_Diagram.png
+[ER_Diagram.png
+](https://github.com/emmy0la/Employee-Management-System-SQL-Project/blob/main/ER_Diagram.png)
 
 ## SQL Analysis
 
