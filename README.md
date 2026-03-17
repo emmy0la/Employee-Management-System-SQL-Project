@@ -81,6 +81,8 @@ SELECT *
 FROM Employees
 WHERE Status = 'Active';
 
+![image alt](https://github.com/emmy0la/Employee-Management-System-SQL-Project/blob/643957d71fdfa88e4d21ba1a9b4d1115b940cef1/screenshots/active_employees%201.png)
+
 Identify employees working in the Finance department
 
 SELECT
