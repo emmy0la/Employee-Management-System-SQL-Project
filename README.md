@@ -95,6 +95,8 @@ ON e.DepartmentID = d.DeptID
 WHERE d.DeptName = 'Finance'
 AND e.Status = 'Active';
 
+![image alt](https://github.com/emmy0la/Employee-Management-System-SQL-Project/blob/cbf7a5ecf57ba1450e55f94719cf24353b50d0d5/screenshots/Active%20Finance%20dep.png)
+
 Identify employees earning above a specific salary threshold
 
 SELECT
