@@ -67,8 +67,7 @@ An Entity Relationship Diagram illustrates the database structure and relationsh
 
 ER Diagram
 
-[ER_Diagram.png
-](https://github.com/emmy0la/Employee-Management-System-SQL-Project/blob/main/ER_Diagram.png)
+![ER_Diagram.png alt] (https://github.com/emmy0la/Employee-Management-System-SQL-Project/blob/9cb448a4ce0a9e7f4fe0b96902e7b84437364a10/ER_Diagram.png)
 
 ## SQL Analysis
 
