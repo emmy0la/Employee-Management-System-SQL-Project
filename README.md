@@ -106,6 +106,8 @@ WHERE s.ToDate IS NULL
 AND s.SalaryAmount > 100000
 ORDER BY s.SalaryAmount DESC;
 
+![image alt](https://github.com/emmy0la/Employee-Management-System-SQL-Project/blob/4422cde72b754a77ef2cd60c94a559f5195b280f/screenshots/top_salary%202.png)
+
 Analyze attendance records within a specific date range
 
 SELECT
