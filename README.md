@@ -126,6 +126,8 @@ ON a.EmployeeID = e.EmployeeID
 WHERE a.AttendanceDate BETWEEN '2026-01-01' AND '2026-01-31'
 AND a.Status = 'Present';
 
+![image alt](https://github.com/emmy0la/Employee-Management-System-SQL-Project/blob/main/screenshots/attendance_query%202.png)
+
 Retrieve the top 5 highest paid employees
 
 SELECT
