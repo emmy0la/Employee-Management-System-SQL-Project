@@ -144,7 +144,7 @@ WHERE s.ToDate IS NULL
 ORDER BY s.SalaryAmount DESC
 LIMIT 5;
 
-Screenshots of query outputs are available in the screenshots folder.
+![image alt](https://github.com/emmy0la/Employee-Management-System-SQL-Project/blob/main/screenshots/top_salary%202.png)
 
 ## Key Insights
 
